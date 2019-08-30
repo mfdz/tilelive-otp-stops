@@ -135,7 +135,7 @@ class GeoJSONSource {
           return;
         }
         this.stationTileIndex = stationTileIndex;
-        console.log("stops loaded")
+        console.log("stops loaded from:", uri)
         callback(null, this);
       })
     })
