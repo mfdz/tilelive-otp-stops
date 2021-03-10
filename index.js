@@ -122,7 +122,11 @@ const stationMapper = data => ({
 
 class GeoJSONSource {
   constructor(uri, callback){
-    uri.protocol = "http:"
+    if(uri.hostname.startsWith("opentripplanner")) {
+      uri.protocol = "http:"
+    } else {
+      uri.protocol = "https:"
+    }
     getTileIndex(uri, stopQuery, stopMapper, (err, stopTileIndex) => {
       if (err){
         callback(err);
